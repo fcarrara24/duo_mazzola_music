@@ -249,6 +249,7 @@ a {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 120px 0 80px;
   background: linear-gradient(135deg, var(--light-gray) 0%, #e0e0e0 100%);
   position: relative;
