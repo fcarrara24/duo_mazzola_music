@@ -24,7 +24,7 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     clean: true,
-    publicPath: '/', // Important for GitHub Pages
+    publicPath: './', // Usa percorso relativo per GitHub Pages
   },
   plugins: [
     new HtmlWebpackPlugin({
