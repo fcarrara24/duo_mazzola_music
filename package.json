@@ -23,5 +23,6 @@
     "webpack": "^5.88.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.0"
-  }
+  },
+  "homepage": "https://fcarrara24.github.io/duo_mazzola_music/"
 }
