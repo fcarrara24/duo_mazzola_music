@@ -1,29 +1,15 @@
 // Main entry point for the application
 import './styles.css';
+import { renderTestPage } from './pages/testPage';
 
-class App {
-  private mainElement: HTMLElement;
-
-  constructor() {
-    this.mainElement = document.getElementById('main')!;
-    this.initialize();
-  }
-
-  private initialize(): void {
-    // Create a sample component
-    const welcomeComponent = document.createElement('div');
-    welcomeComponent.className = 'welcome';
-    welcomeComponent.innerHTML = `
-      <h1>Benvenuti su Duo Mazzola Music</h1>
-      <p>Il tuo progetto TypeScript è stato configurato correttamente!</p>
-    `;
-    
-    // Add the component to the main element
-    this.mainElement.appendChild(welcomeComponent);
+function initApp() {
+  const mainElement = document.getElementById('main');
+  if (mainElement) {
+    renderTestPage(mainElement);
+  } else {
+    console.error('Could not find main element');
   }
 }
 
 // Start the application when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', () => {
-  new App();
-});
+document.addEventListener('DOMContentLoaded', initApp);
