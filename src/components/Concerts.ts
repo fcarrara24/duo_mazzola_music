@@ -30,7 +30,7 @@ export function createConcerts() {
       date: '5 Ottobre 2023',
       location: 'Auditorium Parco della Musica, Roma',
       description: 'Melodie autunnali che riscaldano il cuore in una serata indimenticabile.',
-      image: 'https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
+      image: 'C:/Users/Francesco/Desktop/duo_mazzola_music/src/img/natale_1.jpg',
       isUpcoming: true
     },
     {

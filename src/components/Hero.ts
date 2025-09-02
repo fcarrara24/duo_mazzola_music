@@ -3,7 +3,7 @@ export function createHero() {
   hero.className = 'hero';
   hero.id = 'home';
   
-  hero.innerHTML = `
+  hero.innerHTML = /*html*/`
     <div class="hero-content">
       <h1>Duo Mazzola</h1>
       <p class="subtitle">Esperienze musicali indimenticabili</p>
