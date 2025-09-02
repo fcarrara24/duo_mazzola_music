@@ -2,7 +2,7 @@ export function createNavbar() {
   const navbar = document.createElement('nav');
   navbar.className = 'navbar';
   
-  navbar.innerHTML = `
+  navbar.innerHTML = /*html*/`
     <div class="container">
       <div class="navbar-brand">
         <a href="#" class="logo">Duo Mazzola</a>

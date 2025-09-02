@@ -1,3 +1,6 @@
+// Import the image at the top of the file
+import nataleImage from '../img/natale_1.jpg';
+
 interface Concert {
   id: number;
   title: string;
@@ -30,7 +33,7 @@ export function createConcerts() {
       date: '5 Ottobre 2023',
       location: 'Auditorium Parco della Musica, Roma',
       description: 'Melodie autunnali che riscaldano il cuore in una serata indimenticabile.',
-      image: 'C:/Users/Francesco/Desktop/duo_mazzola_music/src/img/natale_1.jpg',
+      image: nataleImage,
       isUpcoming: true
     },
     {

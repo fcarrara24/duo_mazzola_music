@@ -168,6 +168,9 @@ a {
 .nav-links a.active::after {
   width: 100%;
 }
+#contatti{
+  padding: 12px 30px;
+}
 
 .navbar-toggle {
   display: none;
