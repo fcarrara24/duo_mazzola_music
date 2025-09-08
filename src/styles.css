@@ -150,7 +150,6 @@ a {
   color: var(--text);
   font-weight: 500;
   position: relative;
-  padding: 0.5rem 0;
 }
 
 .nav-links a::after {
