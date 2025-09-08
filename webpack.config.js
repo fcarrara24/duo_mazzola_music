@@ -15,6 +15,13 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'img/[name][ext]',
+        },
+      },
     ],
   },
   resolve: {
@@ -33,6 +40,11 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: 'public', to: '.' },
+        { 
+          from: 'src/img',
+          to: 'img',
+          noErrorOnMissing: true, // Don't fail if the directory doesn't exist
+        },
       ],
     }),
   ],
