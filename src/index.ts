@@ -31,27 +31,71 @@ function initApp() {
     
     // Create and append sections
     console.log('Creating components...');
-    const components = [
+    // Add main content sections
+    const sections = [
       { name: 'hero', create: createHero },
       { name: 'about', create: createAbout },
       { name: 'concerts', create: createConcerts },
-      { name: 'media', create: createMediaGallery }
+      { name: 'media', create: createMediaGallery },
+      { 
+        name: 'contact', 
+        create: () => {
+          const section = document.createElement('section');
+          section.className = 'contact-section';
+          section.id = 'contatti';
+          section.innerHTML = `
+            <div class="container">
+              <h2 class="section-title">Contattaci</h2>
+              <p class="contact-subtitle">Siamo a tua disposizione per informazioni sui concerti e disponibilità</p>
+              
+              <div class="contact-methods">
+                <div class="contact-method">
+                  <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h3>Telefono</h3>
+                    <p>Per una risposta più rapida, ti consigliamo di chiamarci:</p>
+                    <a href="tel:+39XXXXXXXXX" class="contact-link">+39 XXX XXX XXXX</a>
+                  </div>
+                </div>
+                
+                <div class="contact-method">
+                  <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h3>Email</h3>
+                    <p>Oppure inviaci un'email a:</p>
+                    <a href="mailto:info@duomazzola.it" class="contact-link">info@duomazzola.it</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+          return section;
+        }
+      }
     ];
     
-    components.forEach(({ name, create }) => {
+    // Create and append all sections
+    sections.forEach(({ name, create }) => {
       try {
-        console.log(`Creating ${name} component...`);
-        const component = create();
-        if (component) {
-          main.appendChild(component);
-          console.log(`✓ ${name} component created successfully`);
+        console.log(`Creating ${name} section...`);
+        const section = create();
+        if (section) {
+          main.appendChild(section);
+          console.log(`✓ ${name} section created successfully`);
         } else {
-          console.error(`❌ Failed to create ${name} component`);
+          console.error(`❌ Failed to create ${name} section`);
         }
       } catch (error) {
-        console.error(`Error creating ${name} component:`, error);
+        console.error(`Error creating ${name} section:`, error);
       }
     });
+    
+    // Add main content to the app
+    app.appendChild(main);
     
     // Add footer
     console.log('Creating footer...');

@@ -4,7 +4,7 @@ export function createNavbar() {
   
   navbar.innerHTML = /*html*/`
     <div class="container">
-      <div class="navbar-brand">
+      <div class="navbar-brand" id="navbarBrand">
         <a href="#" class="logo">Duo Mazzola</a>
         <button class="navbar-toggle" aria-label="Menu">
           <span class="hamburger"></span>
