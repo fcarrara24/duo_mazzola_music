@@ -1,82 +1,169 @@
-interface MediaItem {
+type Season = 'estate' | 'inverno' | 'all';
+type MediaType = 'image' | 'video';
+
+interface BaseMediaItem {
   id: number;
-  type: 'image' | 'video';
+  title: string;
+  type: MediaType;
+  category: string;
+  season: Season;
   src: string;
   thumbnail: string;
-  title: string;
-  category: string;
 }
+
+interface ImageMediaItem extends BaseMediaItem {
+  type: 'image';
+  category: 'foto';
+  season: Exclude<Season, 'all'>;
+}
+
+interface VideoMediaItem extends BaseMediaItem {
+  type: 'video';
+  category: 'video';
+  season: 'all';
+}
+
+type MediaItem = ImageMediaItem | VideoMediaItem;
 
 export function createMediaGallery() {
   const gallery = document.createElement('section');
   gallery.className = 'media-gallery';
   gallery.id = 'media';
   
-  // Sample media data - replace with actual media
-  const mediaData: MediaItem[] = [
+  // YouTube videos
+  const youtubeVideos: VideoMediaItem[] = [
     {
       id: 1,
-      type: 'image',
-      src: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
-      thumbnail: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-      title: 'Concerto al Teatro',
-      category: 'foto'
+      type: 'video',
+      src: 'https://www.youtube.com/embed/VIDEO_ID_1',
+      thumbnail: 'https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg',
+      title: 'Duo Mazzola Live Performance',
+      category: 'video',
+      season: 'all'
     },
     {
       id: 2,
       type: 'video',
-      src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-      title: 'Esecuzione dal vivo',
-      category: 'video'
-    },
+      src: 'https://www.youtube.com/embed/VIDEO_ID_2',
+      thumbnail: 'https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg',
+      title: 'Duo Mazzola in Concerto',
+      category: 'video',
+      season: 'all'
+    }
+  ];
+
+  // Estate Materiale images
+  const estateImages: ImageMediaItem[] = [
     {
       id: 3,
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1514525252781-ee6733f2f52d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
-      thumbnail: 'https://images.unsplash.com/photo-1514525252781-ee6733f2f52d?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-      title: 'Prova in sala',
-      category: 'foto'
+      src: './img/Estate Materiale/Duo Mazzola estate 1.jpg',
+      thumbnail: './img/Estate Materiale/Duo Mazzola estate 1.jpg',
+      title: 'Duo Mazzola Estate 1',
+      category: 'foto',
+      season: 'estate'
     },
     {
       id: 4,
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
-      thumbnail: 'https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-      title: 'Concerto all\'aperto',
-      category: 'foto'
+      src: './img/Estate Materiale/Duo Mazzola estate 2.jpg',
+      thumbnail: './img/Estate Materiale/Duo Mazzola estate 2.jpg',
+      title: 'Duo Mazzola Estate 2',
+      category: 'foto',
+      season: 'estate'
     },
     {
       id: 5,
-      type: 'video',
-      src: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
-      thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
-      title: 'Intervista',
-      category: 'video'
+      type: 'image',
+      src: './img/Estate Materiale/Duo Mazzola estate 3.jpg',
+      thumbnail: './img/Estate Materiale/Duo Mazzola estate 3.jpg',
+      title: 'Duo Mazzola Estate 3',
+      category: 'foto',
+      season: 'estate'
     },
     {
       id: 6,
       type: 'image',
-      src: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
-      thumbnail: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=300&q=80',
-      title: 'Backstage',
-      category: 'foto'
+      src: './img/Estate Materiale/Duo Mazzola estate 4.png',
+      thumbnail: './img/Estate Materiale/Duo Mazzola estate 4.png',
+      title: 'Duo Mazzola Estate 4',
+      category: 'foto',
+      season: 'estate'
+    },
+    {
+      id: 7,
+      type: 'image',
+      src: './img/Estate Materiale/Duo Mazzola estate 5.jpg',
+      thumbnail: './img/Estate Materiale/Duo Mazzola estate 5.jpg',
+      title: 'Duo Mazzola Estate 5',
+      category: 'foto',
+      season: 'estate'
+    },
+    {
+      id: 8,
+      type: 'image',
+      src: './img/Estate Materiale/Duo Mazzola estate 6.jpg',
+      thumbnail: './img/Estate Materiale/Duo Mazzola estate 6.jpg',
+      title: 'Duo Mazzola Estate 6',
+      category: 'foto',
+      season: 'estate'
     }
   ];
+
+  // Inverno Materiale images
+  const invernoImages: ImageMediaItem[] = [
+    {
+      id: 10,
+      type: 'image',
+      src: './img/Inverno Materiale/Duo Mazzola - Natale 2.jpg',
+      thumbnail: './img/Inverno Materiale/Duo Mazzola - Natale 2.jpg',
+      title: 'Duo Mazzola Natale 2',
+      category: 'foto',
+      season: 'inverno'
+    },
+    {
+      id: 11,
+      type: 'image',
+      src: './img/Inverno Materiale/Duo Mazzola - Natale 4.jpg',
+      thumbnail: './img/Inverno Materiale/Duo Mazzola - Natale 4.jpg',
+      title: 'Duo Mazzola Natale 4',
+      category: 'foto',
+      season: 'inverno'
+    },
+    {
+      id: 12,
+      type: 'image',
+      src: './img/Inverno Materiale/Duo Mazzola foto.png',
+      thumbnail: './img/Inverno Materiale/Duo Mazzola foto.png',
+      title: 'Duo Mazzola Inverno',
+      category: 'foto',
+      season: 'inverno'
+    }
+  ];
+
+  // Combine all media
+  const mediaData: MediaItem[] = [...youtubeVideos, ...estateImages, ...invernoImages];
 
   gallery.innerHTML = /*html*/`
     <div class="container">
       <h2 class="section-title">Media</h2>
       
       <div class="gallery-filters">
-        <button class="filter-btn active" data-filter="all">Tutti</button>
-        <button class="filter-btn" data-filter="foto">Foto</button>
-        <button class="filter-btn" data-filter="video">Video</button>
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">Tutti</button>
+          <button class="filter-btn" data-filter="foto">Foto</button>
+          <button class="filter-btn" data-filter="video">Video</button>
+        </div>
+        <div class="season-filters">
+          <button class="season-btn active" data-season="all">Tutte</button>
+          <button class="season-btn" data-season="estate">Estate</button>
+          <button class="season-btn" data-season="inverno">Inverno</button>
+        </div>
       </div>
       
       <div class="gallery-grid">
         ${mediaData.map(item => `
-          <div class="gallery-item ${item.category}" data-category="${item.category}">
+          <div class="gallery-item ${item.category}" data-category="${item.category}" data-season="${item.season}">
             <div class="gallery-item-inner">
               ${item.type === 'image' ? `
                 <img src="${item.thumbnail}" alt="${item.title}" class="gallery-img" />
@@ -117,7 +204,26 @@ export function createMediaGallery() {
 
   // Filter functionality
   const filterButtons = gallery.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const seasonButtons = gallery.querySelectorAll<HTMLButtonElement>('.season-btn');
   const galleryItems = gallery.querySelectorAll<HTMLElement>('.gallery-item');
+  
+  let currentFilter = 'all';
+  let currentSeason = 'all';
+  
+  const updateFilters = () => {
+    galleryItems.forEach(item => {
+      const category = item.getAttribute('data-category');
+      const season = item.getAttribute('data-season');
+      const categoryMatch = currentFilter === 'all' || category === currentFilter;
+      const seasonMatch = currentSeason === 'all' || season === currentSeason;
+      
+      if (categoryMatch && seasonMatch) {
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  };
   
   filterButtons.forEach(button => {
     button.addEventListener('click', () => {
@@ -125,17 +231,19 @@ export function createMediaGallery() {
       filterButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
       
-      const filter = button.getAttribute('data-filter');
+      currentFilter = button.getAttribute('data-filter') || 'all';
+      updateFilters();
+    });
+  });
+  
+  seasonButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Update active season button
+      seasonButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
       
-      // Filter items
-      galleryItems.forEach(item => {
-        const category = item.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
-          item.style.display = 'block';
-        } else {
-          item.style.display = 'none';
-        }
-      });
+      currentSeason = button.getAttribute('data-season') || 'all';
+      updateFilters();
     });
   });
   

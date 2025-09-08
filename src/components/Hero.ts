@@ -5,7 +5,9 @@ export function createHero() {
   
   hero.innerHTML = /*html*/`
     <div class="hero-content">
-      <h1>Duo Mazzola</h1>
+      <div class="logo-container">
+        <img src="./img/Estate Materiale/Duo Mazzola Logo.png" alt="Duo Mazzola" class="hero-logo">
+      </div>
       <p class="subtitle">Esperienze musicali indimenticabili</p>
       <div class="cta-buttons">
         <a href="#concerti" class="btn">Prossimi Eventi</a>
