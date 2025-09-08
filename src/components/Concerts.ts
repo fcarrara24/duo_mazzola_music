@@ -7,8 +7,14 @@ interface Concert {
   date: string;
   location: string;
   description: string;
-  image: string;
+  image: string | { src: string; default?: string };
   isUpcoming: boolean;
+}
+
+// Helper function to get image URL from different import types
+function getImageUrl(image: string | { src: string; default?: string }): string {
+  if (typeof image === 'string') return image;
+  return image.default || image.src;
 }
 
 export function createConcerts() {
@@ -59,7 +65,7 @@ export function createConcerts() {
   const upcomingConcerts = concertData.filter(concert => concert.isUpcoming);
   const pastConcerts = concertData.filter(concert => !concert.isUpcoming);
 
-  concerts.innerHTML = `
+  concerts.innerHTML = /*html*/`
     <div class="container">
       <h2 class="section-title">Concerti</h2>
       
@@ -75,7 +81,7 @@ export function createConcerts() {
               ${upcomingConcerts.map(concert => `
                 <div class="concert-card" data-id="${concert.id}">
                   <div class="concert-image">
-                    <img src="${concert.image}" alt="${concert.title}" />
+                    <img src="${getImageUrl(concert.image)}" alt="${concert.title}" />
                     <div class="concert-date">${concert.date}</div>
                   </div>
                   <div class="concert-info">
@@ -100,7 +106,7 @@ export function createConcerts() {
               ${pastConcerts.map(concert => `
                 <div class="concert-card" data-id="${concert.id}">
                   <div class="concert-image">
-                    <img src="${concert.image}" alt="${concert.title}" />
+                    <img src="${getImageUrl(concert.image)}" alt="${concert.title}" />
                     <div class="concert-date">${concert.date}</div>
                   </div>
                   <div class="concert-info">

@@ -5,6 +5,7 @@ import { createHero } from './components/Hero';
 import { createAbout } from './components/About';
 import { createConcerts } from './components/Concerts';
 import { createMediaGallery } from './components/MediaGallery';
+import { createFooter } from './components/Footer';
 
 function initApp() {
   console.log('Initializing application...');
@@ -56,7 +57,7 @@ function initApp() {
     console.log('Creating footer...');
     const footer = document.createElement('footer');
     footer.className = 'footer';
-    footer.innerHTML = `
+    footer.innerHTML = /*html*/ `
       <div class="container">
         <div class="footer-content">
           <div class="footer-logo">Duo Mazzola</div>
@@ -85,17 +86,7 @@ function initApp() {
             </a>
           </div>
         </div>
-        <div class="footer-bottom">
-          <p>&copy; ${new Date().getFullYear()} Duo Mazzola. Tutti i diritti riservati.</p>
-        </div>
-      </div>
     `;
-    
-    // Append all to the app
-    console.log('Appending components to the DOM...');
-    app.appendChild(main);
-    app.appendChild(footer);
-    
     console.log('Application initialized successfully!');
     
     // Smooth scrolling for anchor links
@@ -116,16 +107,32 @@ function initApp() {
       });
     });
     
-  } catch (error: unknown) {
+    // Add footer to the app
+    app.appendChild(footer);
+    
+  } catch (error) {
     console.error('Error initializing application:', error);
     const errorMessage = error instanceof Error ? error.message : 'Errore sconosciuto';
-    app.innerHTML = `
-      <div style="padding: 20px; color: red; font-family: Arial, sans-serif;">
-        <h2>Errore nel caricamento dell'applicazione</h2>
-        <p>Si è verificato un errore durante il caricamento della pagina. Si prega di ricaricare la pagina o riprovare più tardi.</p>
-        <p>Dettagli dell'errore: ${errorMessage}</p>
-      </div>
-    `;
+    const errorDiv = document.createElement('div');
+    errorDiv.style.padding = '20px';
+    errorDiv.style.color = 'red';
+    errorDiv.style.fontFamily = 'Arial, sans-serif';
+    
+    const heading = document.createElement('h2');
+    heading.textContent = "Errore nel caricamento dell'applicazione";
+    
+    const message = document.createElement('p');
+    message.textContent = "Si è verificato un errore durante il caricamento della pagina. Si prega di ricaricare la pagina o riprovare più tardi.";
+    
+    const details = document.createElement('p');
+    details.textContent = 'Dettagli dell\'errore:' + errorMessage;
+    
+    errorDiv.appendChild(heading);
+    errorDiv.appendChild(message);
+    errorDiv.appendChild(details);
+    
+    app.innerHTML = '';
+    app.appendChild(errorDiv);
   }
 }
 

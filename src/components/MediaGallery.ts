@@ -64,7 +64,7 @@ export function createMediaGallery() {
     }
   ];
 
-  gallery.innerHTML = `
+  gallery.innerHTML = /*html*/`
     <div class="container">
       <h2 class="section-title">Media</h2>
       
@@ -154,14 +154,14 @@ export function createMediaGallery() {
       const mediaItem = mediaData[index];
       
       if (mediaItem.type === 'image') {
-        modalContent.innerHTML = `
+        modalContent.innerHTML = /*html*/`
           <img src="${mediaItem.src}" alt="${mediaItem.title}" class="modal-media" />
           <div class="modal-caption">
             <h3>${mediaItem.title}</h3>
           </div>
         `;
       } else {
-        modalContent.innerHTML = `
+        modalContent.innerHTML = /*html*/`
           <div class="video-container">
             <iframe 
               src="${mediaItem.src}?autoplay=1" 

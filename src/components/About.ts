@@ -3,7 +3,7 @@ export function createAbout() {
   about.className = 'about';
   about.id = 'chi-siamo';
   
-  about.innerHTML = `
+  about.innerHTML = /*html*/`
     <div class="container">
       <h2 class="section-title">Chi Siamo</h2>
       <div class="about-content">
