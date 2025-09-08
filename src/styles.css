@@ -925,6 +925,135 @@ a {
   text-align: center;
 }
 
+/* Curriculum Section */
+.curriculum-section {
+  padding: 6rem 0;
+  background-color: white;
+}
+
+.curriculum-section .section-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.curriculum-section .section-subtitle {
+  text-align: center;
+  color: var(--secondary);
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.curriculum-single {
+  max-width: 600px;
+  margin: 2rem auto 0;
+}
+
+.curriculum-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.curriculum-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.curriculum-icon {
+  width: 100px;
+  height: 100px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  color: white;
+  font-size: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.curriculum-card h3 {
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+  font-size: 1.75rem;
+}
+
+.curriculum-card p {
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+
+.curriculum-card:hover .curriculum-icon {
+  background: var(--accent-red);
+  transform: scale(1.05);
+  transform: scale(1.1);
+}
+
+.curriculum-card h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.curriculum-card p {
+  color: var(--secondary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.curriculum-card .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.curriculum-card .btn:hover {
+  background: var(--accent-red);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.curriculum-card .btn i {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .curriculum-section {
+    padding: 4rem 0;
+  }
+  
+  .curriculum-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+  
+  .curriculum-card {
+    padding: 2rem 1.5rem;
+  }
+}
+
 /* Contact Section */
 .contact-section {
   padding: 6rem 0;

@@ -5,6 +5,7 @@ import { createHero } from './components/Hero';
 import { createAbout } from './components/About';
 import { createConcerts } from './components/Concerts';
 import { createMediaGallery } from './components/MediaGallery';
+import { createCurriculumSection } from './components/CurriculumSection';
 import { createFooter } from './components/Footer';
 
 function initApp() {
@@ -31,12 +32,19 @@ function initApp() {
     
     // Create and append sections
     console.log('Creating components...');
+    // Define component type for better type safety
+    type ComponentConfig = {
+      name: string;
+      create: () => HTMLElement;
+    };
+
     // Add main content sections
-    const sections = [
+    const components: ComponentConfig[] = [
       { name: 'hero', create: createHero },
       { name: 'about', create: createAbout },
       { name: 'concerts', create: createConcerts },
       { name: 'media', create: createMediaGallery },
+      { name: 'curriculum', create: createCurriculumSection },
       { 
         name: 'contact', 
         create: () => {
@@ -78,8 +86,8 @@ function initApp() {
       }
     ];
     
-    // Create and append all sections
-    sections.forEach(({ name, create }) => {
+    // Create and append all components
+    components.forEach(({ name, create }) => {
       try {
         console.log(`Creating ${name} section...`);
         const section = create();
