@@ -1,5 +1,5 @@
 interface RecordDB {
-    TIPO: "IMG" | "VID" | "POST_INSTAGRAM" | "URL" | "DATO";
+    TIPO: "IMMAGINE" | "VIDEO" | "POST_INSTAGRAM" | "URL" | "DATO";
     TITOLO: string;
     DESCRIZIONE: string;
     URL: string;
