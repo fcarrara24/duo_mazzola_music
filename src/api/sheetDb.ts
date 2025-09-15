@@ -9,7 +9,7 @@ interface RecordDB {
   }
   
 
-async function getDati(): Promise<RecordDB[]> {
+export async function getDati(): Promise<RecordDB[]> {
     const response = await fetch("https://sheetdb.io/api/v1/tg0w3ai1vymki");
     
     if (!response.ok) {

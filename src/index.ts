@@ -7,6 +7,7 @@ import { createConcerts } from './components/Concerts';
 import { createMediaGallery } from './components/MediaGallery';
 import { createCurriculumSection } from './components/CurriculumSection';
 import { createFooter } from './components/Footer';
+import DynamicContent from './components/DynamicContent';
 
 function initApp() {
   console.log('Initializing application...');
@@ -44,6 +45,26 @@ function initApp() {
       { name: 'about', create: createAbout },
       { name: 'concerts', create: createConcerts },
       { name: 'media', create: createMediaGallery },
+      { 
+        name: 'dynamic-content',
+        create: () => {
+          const section = document.createElement('section');
+          section.id = 'dynamic-content';
+          section.className = 'dynamic-content-section';
+          
+          // Initialize DynamicContent after the section is created and added to the DOM
+          setTimeout(() => {
+            new DynamicContent({
+              containerId: 'dynamic-content',
+              itemsPerPage: 6,
+              showCategories: true,
+              showDates: true
+            });
+          }, 0);
+          
+          return section;
+        }
+      },
       { name: 'curriculum', create: createCurriculumSection },
       { 
         name: 'contact', 
