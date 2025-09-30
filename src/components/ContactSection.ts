@@ -8,6 +8,7 @@ export function createContactSection() {
         <div class="contact-content">
           <h2 class="section-title">Contattaci</h2>
           <p class="contact-subtitle">Siamo a tua disposizione per informazioni sui concerti e disponibilità</p>
+          <p class="service-area">Serviamo con piacere la zona di Bergamo e provincia</p>
           
           <div class="contact-methods">
             <div class="contact-method">

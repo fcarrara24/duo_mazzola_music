@@ -47,6 +47,12 @@ export function createAbout() {
         
         <div class="about-image">
           <div class="image-container">
+            <img src="./img/Estate Materiale/Duo Mazzola estate 1.jpg" alt="Duo Mazzola in concerto" />
+          </div>
+        </div>
+
+        <div class="about-image">
+          <div class="image-container">
             <img src="./img/Estate Materiale/Duo Mazzola estate 2.jpg" alt="Duo Mazzola in concerto" />
           </div>
         </div>
