@@ -26,9 +26,7 @@ export function createAbout() {
             <h3>Generi musicali</h3>
             <div class="tags">
               <span class="tag">Classica</span>
-              <span class="tag">Jazz</span>
               <span class="tag">Contemporanea</span>
-              <span class="tag">Colonne sonore</span>
             </div>
           </div>
         </div>

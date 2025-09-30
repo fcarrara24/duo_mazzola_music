@@ -382,7 +382,6 @@ style.textContent = `
   .gallery-item-inner {
     position: relative;
     width: 100%;
-    padding-top: 100%; /* 1:1 Aspect Ratio */
   }
 
   .media-container {

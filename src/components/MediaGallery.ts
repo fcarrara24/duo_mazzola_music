@@ -165,26 +165,28 @@ export function createMediaGallery() {
         ${mediaData.map(item => `
           <div class="gallery-item ${item.category}" data-category="${item.category}" data-season="${item.season}">
             <div class="gallery-item-inner">
-              ${item.type === 'image' ? `
-                <img src="${item.thumbnail}" alt="${item.title}" class="gallery-img" />
-                <div class="gallery-overlay">
-                  <div class="gallery-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <circle cx="11" cy="11" r="8"></circle>
-                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                    </svg>
+              <div class="gallery-media-container">
+                ${item.type === 'image' ? `
+                  <img src="${item.thumbnail}" alt="${item.title}" class="gallery-img" loading="lazy" />
+                  <div class="gallery-overlay">
+                    <div class="gallery-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      </svg>
+                    </div>
                   </div>
-                </div>
-              ` : `
-                <div class="video-thumbnail">
-                  <img src="${item.thumbnail}" alt="${item.title}" class="gallery-img" />
-                  <div class="play-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
+                ` : `
+                  <div class="video-thumbnail">
+                    <img src="${item.thumbnail}" alt="${item.title}" class="gallery-img" loading="lazy" />
+                    <div class="play-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                      </svg>
+                    </div>
                   </div>
-                </div>
-              `}
+                `}
+              </div>
               <div class="gallery-caption">
                 <h4>${item.title}</h4>
               </div>
