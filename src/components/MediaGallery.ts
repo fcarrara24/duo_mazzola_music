@@ -35,18 +35,18 @@ export function createMediaGallery() {
     {
       id: 1,
       type: 'video',
-      src: 'https://www.youtube.com/embed/VIDEO_ID_1',
-      thumbnail: 'https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg',
-      title: 'Duo Mazzola Live Performance',
+      src: 'https://www.youtube.com/watch?v=pKUUaWFq_xw',
+      thumbnail: 'https://youtu.be/pKUUaWFq_xw?si=OrRCBvvezMeyL9Mm/maxresdefault.jpg',
+      title: '"Duo Mazzola" versione popolare acustica',
       category: 'video',
       season: 'all'
     },
     {
       id: 2,
       type: 'video',
-      src: 'https://www.youtube.com/embed/VIDEO_ID_2',
+      src: 'https://www.youtube.com/watch?v=VY9ac6jbZoA',
       thumbnail: 'https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg',
-      title: 'Duo Mazzola in Concerto',
+      title: 'Versione ballo liscio e Revival anni 60/90',
       category: 'video',
       season: 'all'
     }

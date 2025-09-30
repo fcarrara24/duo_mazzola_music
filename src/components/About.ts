@@ -8,17 +8,31 @@ export function createAbout() {
       <h2 class="section-title">Chi Siamo</h2>
       <div class="about-content">
         <div class="about-text">
-          <p class="lead">Il Duo Mazzola è un'esplosiva combinazione di talento e passione musicale che porta sul palco un repertorio variegato e coinvolgente.</p>
+          <p class="lead">Duo Mazzola, composto da padre e figlio che con le loro performance musicali tra fisarmoniche e tastiere portano musica per eventi adatti per Folklore, Liscio, Revival e Natale.</p>
           
           <div class="about-details">
             <div class="detail">
               <h3>La nostra storia</h3>
-              <p>Nati dall'incontro di due musicisti con esperienze diverse ma complementari, il Duo Mazzola nasce con l'obiettivo di portare la musica classica e non solo in contesti innovativi e coinvolgenti.</p>
+              <p>Il Duo nasce da una sinergia tra Fabrizio e Daniel (padre e figlio) che lo spinge nell'inverno del 2014  a formare il Duo con Fabrizio che ha alle spalle già 20 anni di musica live e Daniele he si affiancherà per formare così un Duo che tutt'oggi continua a crescere</p>
             </div>
             
             <div class="detail">
               <h3>Il nostro stile</h3>
-              <p>Un mix unico di classico e moderno, dove le melodie senza tempo incontrano arrangiamenti contemporanei, creando un'esperienza musicale unica e coinvolgente.</p>
+              <p>Ci potete trovare in 3 versioni:</p>
+              <ol class="styled-list">
+                <li>
+                  <strong>Versione Fisarmoniche Folkloristiche</strong>
+                  <p>Adatta per sagre e feste tipiche con abiti tradizionali, fisarmoniche e voci (anche itineranti)</p>
+                </li>
+                <li>
+                  <strong>Versione Palco Liscio e Revival anni 60/90</strong>
+                  <p>Adatta per feste dell'oratorio o Sagre Patronali estive</p>
+                </li>
+                <li>
+                  <strong>Versione Natalizia</strong>
+                  <p>Con vestiti tipici e fisarmoniche in versione itinerante adatta per serenate natalizie, mercatini e presepi viventi</p>
+                </li>
+              </ol>
             </div>
           </div>
           
