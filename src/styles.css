@@ -1394,3 +1394,7 @@ height: 200px;
 .gallery-filters{
   display:none;
 }
+
+ol.styled-list{
+  padding-left: 2em;
+}

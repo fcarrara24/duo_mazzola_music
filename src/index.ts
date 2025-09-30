@@ -85,7 +85,7 @@ function initApp() {
                   <div class="contact-details">
                     <h3>Telefono</h3>
                     <p>Per una risposta più rapida, ti consigliamo di chiamarci:</p>
-                    <a href="tel:+39XXXXXXXXX" class="contact-link">+39 XXX XXX XXXX</a>
+                    <a href="tel:+393206265277" class="contact-link">+39 320 626 5277</a>
                   </div>
                 </div>
                 
