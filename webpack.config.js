@@ -4,6 +4,10 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.ts',
+  performance: {
+    maxEntrypointSize: 1024 * 1024, // 1MB
+    maxAssetSize: 1024 * 1024, // 1MB
+  },
   module: {
     rules: [
       {
@@ -16,7 +20,7 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|jpe?g|gif|svg)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'img/[name][ext]',

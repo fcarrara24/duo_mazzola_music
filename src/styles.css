@@ -125,6 +125,10 @@ a {
   .section-title {
     font-size: 2rem;
   }
+
+  .hero{
+    padding: 50px;
+  }
 }
 
 /* Navigation */
@@ -285,18 +289,20 @@ a {
 }
 /* Hero Section */
 .hero {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 120px 0 80px;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 1)), 
-              url('./img/Estate Materiale/Duo Mazzola estate 2.jpg') no-repeat center center;
-  background-size: cover;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 1)),
+    url('./img/Estate Materiale/Duo Mazzola estate 2.jpg') no-repeat center center/cover;
+  background-position: 30% 50%;
   position: relative;
   overflow: hidden;
   z-index: 1;
   color: white;
+
+  
 }
 
 
@@ -379,6 +385,7 @@ a {
   .hero {
     padding: 100px 0 60px;
     text-align: center;
+    background-position: 30% 40% !important;
   }
   
   .hero .container {
