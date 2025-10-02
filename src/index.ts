@@ -72,10 +72,10 @@ function initApp() {
           const section = document.createElement('section');
           section.className = 'contact-section';
           section.id = 'contatti';
-          section.innerHTML = `
+          section.innerHTML = /*html*/`
             <div class="container">
               <h2 class="section-title">Contattaci</h2>
-              <p class="contact-subtitle">Siamo a tua disposizione per informazioni sui concerti e disponibilità</p>
+              <p class="contact-subtitle">Ci esibiamo in zona Bergamo e dintorni. Siamo a tua disposizione per informazioni sui concerti e disponibilità</p>
               
               <div class="contact-methods">
                 <div class="contact-method">
