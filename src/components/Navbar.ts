@@ -5,8 +5,8 @@ export function createNavbar() {
   navbar.innerHTML = /*html*/`
     <div class="container">
       <div class="navbar-brand" id="navbarBrand">
-        <div class="fw-bold">
-          Duo Mazzola
+        <div class="navbar-container-img">
+          <img class="navbar-logo" src="./img/Estate Materiale/Duo Mazzola Logo.png" alt="Duo Mazzola" class="hero-logo">
         </div>
         <button class="navbar-toggle" aria-label="Menu">
           <span class="hamburger"></span>

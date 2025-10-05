@@ -75,7 +75,7 @@ function initApp() {
           section.innerHTML = /*html*/`
             <div class="container">
               <h2 class="section-title">Contattaci</h2>
-              <p class="contact-subtitle">Ci esibiamo in zona Bergamo e dintorni. Siamo a tua disposizione per informazioni sui concerti e disponibilità</p>
+              <p class="contact-subtitle">Siamo di Bergamo, ma ci esibiamo in tutta la lombradia. Siamo a tua disposizione per informazioni sui concerti e disponibilità</p>
               
               <div class="contact-methods">
                 <div class="contact-method">
@@ -133,7 +133,7 @@ function initApp() {
     footer.innerHTML = /*html*/ `
       <div class="container">
         <div class="footer-content">
-          <div class="footer-logo">Duo Mazzola</div>
+          <div class="footer-logo"><img class="footer-logo" src="./img/Estate Materiale/Duo Mazzola Logo.png" class="footer-logo-img"></div>
           <div class="footer-links">
             <a href="#home">Home</a>
             <a href="#chi-siamo">Chi Siamo</a>
