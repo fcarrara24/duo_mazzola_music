@@ -14,7 +14,7 @@ export const createCurriculumSection = (): HTMLElement => {
           </div>
           <h3>Curriculum Duo Mazzola</h3>
           <p>Scarica il nostro curriculum completo in formato immagine</p>
-          <a href="/Curriculum Duo Mazzola Music.pdf" class="btn btn-primary" download="Duo_Mazzola_Curriculum.pdf">
+          <a href="Curriculum Duo Mazzola Music.pdf" class="btn btn-primary" download="Duo_Mazzola_Curriculum.pdf">
             <i class="fas fa-file-pdf"></i> Scarica PDF
           </a>
         </div>
