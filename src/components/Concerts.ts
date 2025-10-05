@@ -63,19 +63,12 @@ export function createConcerts() {
   ];
 
   const upcomingConcerts = concertData.filter(concert => concert.isUpcoming);
-  const pastConcerts = concertData.filter(concert => !concert.isUpcoming);
 
   concerts.innerHTML = /*html*/`
     <div class="container">
-      <h2 class="section-title">Concerti</h2>
+      <h2 class="section-title">Prossimi Concerti</h2>
       
-      <div class="concerts-tabs">
-        <button class="tab-btn active" data-tab="upcoming">Prossimi Concerti</button>
-        <button class="tab-btn" data-tab="past">Archivio Concerti</button>
-      </div>
-      
-      <div class="tab-content active" id="upcoming-concerts">
-        <h3 class="concerts-subtitle">Prossimi Appuntamenti</h3>
+      <div class="concerts-content">
         ${upcomingConcerts.length > 0 
           ? `<div class="concerts-grid">
               ${upcomingConcerts.map(concert => `
@@ -98,48 +91,17 @@ export function createConcerts() {
           : '<p class="no-events">Nessun concerto in programma al momento. Torna presto per aggiornamenti!</p>'
         }
       </div>
-      
-      <div class="tab-content" id="past-concerts">
-        <h3 class="concerts-subtitle">Archivio Concerti</h3>
-        ${pastConcerts.length > 0 
-          ? `<div class="concerts-grid">
-              ${pastConcerts.map(concert => `
-                <div class="concert-card" data-id="${concert.id}">
-                  <div class="concert-image">
-                    <img src="${getImageUrl(concert.image)}" alt="${concert.title}" />
-                    <div class="concert-date">${concert.date}</div>
-                  </div>
-                  <div class="concert-info">
-                    <h4>${concert.title}</h4>
-                    <div class="concert-location">
-                      <i class="location-icon">📍</i> ${concert.location}
-                    </div>
-                    <p>${concert.description}</p>
-                    <button class="btn btn-outline concert-gallery">Galleria</button>
-                  </div>
-                </div>
-              `).join('')}
-            </div>`
-          : '<p class="no-events">Nessun concerto passato da mostrare.</p>'
-        }
-      </div>
     </div>
   `;
 
-  // Tab functionality
-  const tabButtons = concerts.querySelectorAll('.tab-btn');
-  const tabContents = concerts.querySelectorAll('.tab-content');
-  
-  tabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      // Remove active class from all buttons and contents
-      tabButtons.forEach(btn => btn.classList.remove('active'));
-      tabContents.forEach(content => content.classList.remove('active'));
-      
-      // Add active class to clicked button and corresponding content
-      button.classList.add('active');
-      const tabId = button.getAttribute('data-tab');
-      document.getElementById(`${tabId}-concerts`)?.classList.add('active');
+  // Add click handler for concert details
+  const detailButtons = concerts.querySelectorAll('.concert-details');
+  detailButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const card = (e.target as HTMLElement).closest('.concert-card');
+      const concertId = card?.getAttribute('data-id');
+      // Add your concert details logic here
+      console.log('Viewing details for concert:', concertId);
     });
   });
 

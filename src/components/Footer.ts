@@ -6,9 +6,7 @@ export function createFooter() {
     <div class="container">
       <div class="footer-content">
         <div class="footer-logo">
-          <img src="./img/Estate Materiale/Duo Mazzola Logo.png" alt="Duo Mazzola" class="footer-logo-img">
-            <a href="mailto:info@duomazzola.it">info@duomazzola.it</a>
-          </div>
+          <img class="footer-logo" src="./img/Estate Materiale/Duo Mazzola Logo.png" class="footer-logo-img">
         </div>
       </div>
       <div class="footer-bottom">
@@ -16,6 +14,5 @@ export function createFooter() {
       </div>
     </div>
   `;
-  
   return footer;
 }
