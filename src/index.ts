@@ -1,12 +1,13 @@
 // Main entry point for the application
 import './styles.css';
-import { createComponent } from './components/Component';
-import { createContact }   from './components/Contact';
+
+// Import your components here
+// Example: import { MyComponent } from './components/MyComponent';
 
 function initApp() {
   console.log('Initializing application...');
   
-  // Clear the app container first
+  // Get the app container
   const app = document.getElementById('app');
   if (!app) {
     console.error('Could not find app element');
@@ -15,145 +16,134 @@ function initApp() {
   app.innerHTML = ''; // Clear any existing content
   
   try {
-    // Create and append the navbar
-    // console.log('Creating navbar...');
-    // const navbar = createNavbar();
-    // document.body.insertBefore(navbar, document.body.firstChild);
-    
     // Create main content container
     console.log('Creating main container...');
     const main = document.createElement('main');
     main.id = 'main';
     
-    // Create and append sections
-    console.log('Creating components...');
     // Define component type for better type safety
     type ComponentConfig = {
       name: string;
       create: () => HTMLElement;
     };
 
-    // Add main content sections
+    // Add your components here
     const components: ComponentConfig[] = [
-      // { name: 'hero', create: createHero },
-      // { name: 'about', create: createAbout },
-      // { name: 'media', create: createMediaGallery },
-      // { name: 'concerts', create: createConcerts },
-      { 
-        name: 'dynamic-content',
-        create: () => {
-          const section = document.createElement('section');
-          section.id = 'dynamic-content';
-          section.className = 'dynamic-content-section';
-          
-          // Initialize DynamicContent after the section is created and added to the DOM
-          setTimeout(() => {
-            new DynamicContent({
-              containerId: 'dynamic-content',
-              itemsPerPage: 6,
-              showCategories: true,
-              showDates: true
-            });
-          }, 0);
-          
-          return section;
-        }
-      },
-      { name: 'component', create: createComponent },
-      { name: 'contact', create: createContact }
+      // Example component:
+      // {
+      //   name: 'my-component',
+      //   create: () => {
+      //     const section = document.createElement('section');
+      //     section.className = 'my-component';
+      //     section.innerHTML = `
+      //       <h1>Welcome to TypeScript Webpack Template</h1>
+      //       <p>Start building your application here</p>
+      //     `;
+      //     return section;
+      //   }
+      // },
+      // Add more components as needed
     ];
     
     // Create and append all components
     components.forEach(({ name, create }) => {
       try {
-        console.log(`Creating ${name} section...`);
+        console.log(`Creating ${name} component...`);
         const section = create();
         if (section) {
           main.appendChild(section);
-          console.log(`✓ ${name} section created successfully`);
+          console.log(`✓ ${name} component created successfully`);
         } else {
-          console.error(`❌ Failed to create ${name} section`);
+          console.error(`❌ Failed to create ${name} component`);
         }
       } catch (error) {
-        console.error(`Error creating ${name} section:`, error);
+        console.error(`Error creating ${name} component:`, error);
       }
     });
     
     // Add main content to the app
     app.appendChild(main);
     
-    // Add footer
+    // Add a simple footer
     console.log('Creating footer...');
     const footer = document.createElement('footer');
     footer.className = 'footer';
     footer.innerHTML = /*html*/ `
       <div class="container">
         <div class="footer-content">
-          <div class="social-links">
-  
-            <a href="https://www.instagram.com/duo_mazzola_music?igsh=NXJnbmN5djR2M3Bw" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-              </svg>
-            </a>
-            <a href="https://www.youtube.com/@DanielMazzolaByMazzo" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-              </svg>
-            </a>
-          </div>
+          <p>&copy; ${new Date().getFullYear()} Your Application. All rights reserved.</p>
         </div>
+      </div>
     `;
 
-
+    // Add the footer to the app
+    app.appendChild(footer);
+    
     console.log('Application initialized successfully!');
     
-    // Smooth scrolling for anchor links
-    document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (this: HTMLAnchorElement, e: Event) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        if (!targetId || targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          window.scrollTo({
-            top: (targetElement as HTMLElement).offsetTop - 80,
-            behavior: 'smooth' as ScrollBehavior
-          });
-        }
-      });
-    });
-    
-    // Add footer to the app
-    app.appendChild(footer);
+    // Initialize any global functionality
+    initAppFeatures();
     
   } catch (error) {
     console.error('Error initializing application:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Errore sconosciuto';
-    const errorDiv = document.createElement('div');
-    errorDiv.style.padding = '20px';
-    errorDiv.style.color = 'red';
-    errorDiv.style.fontFamily = 'Arial, sans-serif';
-    
-    const heading = document.createElement('h2');
-    heading.textContent = "Errore nel caricamento dell'applicazione";
-    
-    const message = document.createElement('p');
-    message.textContent = "Si è verificato un errore durante il caricamento della pagina. Si prega di ricaricare la pagina o riprovare più tardi.";
-    
-    const details = document.createElement('p');
-    details.textContent = 'Dettagli dell\'errore:' + errorMessage;
-    
-    errorDiv.appendChild(heading);
-    errorDiv.appendChild(message);
-    errorDiv.appendChild(details);
-    
+    showError(error);
+  }
+}
+
+/**
+ * Initialize application features and event listeners
+ */
+function initAppFeatures() {
+  // Initialize smooth scrolling for anchor links
+  initSmoothScrolling();
+  
+  // Add other global event listeners here
+  // Example: window.addEventListener('resize', handleResize);
+}
+
+/**
+ * Initialize smooth scrolling for anchor links
+ */
+function initSmoothScrolling() {
+  document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e: Event) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (!targetId) return;
+      
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+}
+
+/**
+ * Display an error message to the user
+ */
+function showError(error: unknown) {
+  const errorMessage = document.createElement('div');
+  errorMessage.className = 'error-message';
+  errorMessage.innerHTML = `
+    <h2>Something went wrong</h2>
+    <p>Please refresh the page or try again later.</p>
+    <p>${error instanceof Error ? error.message : 'An unknown error occurred'}</p>
+  `;
+  
+  const app = document.getElementById('app');
+  if (app) {
     app.innerHTML = '';
-    app.appendChild(errorDiv);
+    app.appendChild(errorMessage);
   }
 }
 
 // Start the application when the DOM is fully loaded
-document.addEventListener('DOMContentLoaded', initApp);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initApp);
+} else {
+  initApp();
+}
