@@ -1,7 +1,7 @@
 // Main entry point for the application
 import './styles.css';
 import { createComponent } from './components/Component';
-
+import { createContact }   from './components/Contact';
 
 function initApp() {
   console.log('Initializing application...');
@@ -35,10 +35,10 @@ function initApp() {
 
     // Add main content sections
     const components: ComponentConfig[] = [
-      { name: 'hero', create: createHero },
-      { name: 'about', create: createAbout },
-      { name: 'media', create: createMediaGallery },
-      { name: 'concerts', create: createConcerts },
+      // { name: 'hero', create: createHero },
+      // { name: 'about', create: createAbout },
+      // { name: 'media', create: createMediaGallery },
+      // { name: 'concerts', create: createConcerts },
       { 
         name: 'dynamic-content',
         create: () => {
@@ -60,45 +60,7 @@ function initApp() {
         }
       },
       { name: 'component', create: createComponent },
-      { 
-        name: 'contact', 
-        create: () => {
-          const section = document.createElement('section');
-          section.className = 'contact-section';
-          section.id = 'contatti';
-          section.innerHTML = /*html*/`
-            <div class="container">
-              <h2 class="section-title">Contattaci</h2>
-              <p class="contact-subtitle">Siamo di Bergamo, ma ci esibiamo in tutta la lombradia. Siamo a tua disposizione per informazioni sui concerti e disponibilità</p>
-              
-              <div class="contact-methods">
-                <div class="contact-method">
-                  <div class="contact-icon">
-                    <i class="fas fa-phone-alt"></i>
-                  </div>
-                  <div class="contact-details">
-                    <h3>Telefono</h3>
-                    <p>Per una risposta più rapida, ti consigliamo di chiamarci:</p>
-                    <a href="tel:+393206265277" class="contact-link">+39 320 626 5277</a>
-                  </div>
-                </div>
-                
-                <div class="contact-method">
-                  <div class="contact-icon">
-                    <i class="fas fa-envelope"></i>
-                  </div>
-                  <div class="contact-details">
-                    <h3>Email</h3>
-                    <p>Oppure inviaci un'email a:</p>
-                    <a href="mailto:info@duomazzola.it" class="contact-link">info@duomazzola.it</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-          return section;
-        }
-      }
+      { name: 'contact', create: createContact }
     ];
     
     // Create and append all components
