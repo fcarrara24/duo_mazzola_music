@@ -1,4 +1,4 @@
-import {SHEET_DB_LINK} from './../config/env.ts';
+import {SHEET_DB_LINK} from './../config/env';
 
 interface RecordDB {
   TIPO: "FOTO" | "VIDEO" | "POST_INSTAGRAM" | "URL" | "DATO";
