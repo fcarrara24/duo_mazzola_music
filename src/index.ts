@@ -1,13 +1,7 @@
 // Main entry point for the application
 import './styles.css';
-import { createNavbar } from './components/Navbar';
-import { createHero } from './components/Hero';
-import { createAbout } from './components/About';
-import { createConcerts } from './components/Concerts';
-import { createMediaGallery } from './components/MediaGallery';
-import { createCurriculumSection } from './components/CurriculumSection';
-import { createFooter } from './components/Footer';
-import DynamicContent from './components/DynamicContent';
+import { createComponent } from './components/Component';
+
 
 function initApp() {
   console.log('Initializing application...');
@@ -22,9 +16,9 @@ function initApp() {
   
   try {
     // Create and append the navbar
-    console.log('Creating navbar...');
-    const navbar = createNavbar();
-    document.body.insertBefore(navbar, document.body.firstChild);
+    // console.log('Creating navbar...');
+    // const navbar = createNavbar();
+    // document.body.insertBefore(navbar, document.body.firstChild);
     
     // Create main content container
     console.log('Creating main container...');
@@ -65,7 +59,7 @@ function initApp() {
           return section;
         }
       },
-      { name: 'curriculum', create: createCurriculumSection },
+      { name: 'component', create: createComponent },
       { 
         name: 'contact', 
         create: () => {
@@ -133,14 +127,6 @@ function initApp() {
     footer.innerHTML = /*html*/ `
       <div class="container">
         <div class="footer-content">
-          <div class="footer-logo"><img class="footer-logo" src="./img/Estate Materiale/Duo Mazzola Logo.png" class="footer-logo-img"></div>
-          <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="#chi-siamo">Chi Siamo</a>
-            <a href="#concerti">Concerti</a>
-            <a href="#media">Media</a>
-            <a href="#contatti">Contatti</a>
-          </div>
           <div class="social-links">
             <a href="https://www.facebook.com/share/19aYThKLvG/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -160,6 +146,8 @@ function initApp() {
           </div>
         </div>
     `;
+
+
     console.log('Application initialized successfully!');
     
     // Smooth scrolling for anchor links
