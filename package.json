@@ -34,6 +34,7 @@
   },
   "homepage": "https://fcarrara24.github.io/duo_mazzola_music/",
   "dependencies": {
-    "node-fetch": "^2.7.0"
+    "node-fetch": "^2.7.0", 
+    "dotenv": "^16.3.1"
   }
 }

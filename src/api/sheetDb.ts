@@ -1,3 +1,5 @@
+import {SHEET_DB_LINK} from './../config/env.ts';
+
 interface RecordDB {
   TIPO: "FOTO" | "VIDEO" | "POST_INSTAGRAM" | "URL" | "DATO";
   TITOLO: string;
@@ -13,7 +15,9 @@ const CACHE_TIMESTAMP_KEY = 'duo_mazzola_data_timestamp';
 const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 ore in millisecondi
 
 async function fetchFromServer(): Promise<RecordDB[]> {
-  const response = await fetch("https://sheetdb.io/api/v1/tg0w3ai1vymki");
+
+  const website = "https://sheetdb.io/api/v1/" + SHEET_DB_LINK; 
+  const response = await fetch("https://sheetdb.io/api/v1/");
   
   if (!response.ok) {
     throw new Error("Errore nel recupero dati: " + response.status);
