@@ -3,13 +3,13 @@ import './styles.css';
 import { createNavbar } from './components/Navbar';
 import { createHero } from './components/Hero';
 import { createAbout } from './components/About';
-// import { createConcerts } from './components/Concerts';
+import { createConcerts } from './components/Concerts';
 import { createMediaGallery } from './components/MediaGallery';
 import { createCurriculumSection } from './components/CurriculumSection';
 import { createFooter } from './components/Footer';
 import DynamicContent from './components/DynamicContent';
 
-function initApp() {
+async function initApp() {
   console.log('Initializing application...');
   
   // Clear the app container first
@@ -36,7 +36,7 @@ function initApp() {
     // Define component type for better type safety
     type ComponentConfig = {
       name: string;
-      create: () => HTMLElement;
+      create: () => HTMLElement | Promise<HTMLElement>;
     };
 
     // Add main content sections
@@ -44,7 +44,7 @@ function initApp() {
       { name: 'hero', create: createHero },
       { name: 'about', create: createAbout },
       { name: 'media', create: createMediaGallery },
-      // { name: 'concerts', create: createConcerts },
+      { name: 'concerts', create: createConcerts },
       { 
         name: 'dynamic-content',
         create: () => {
@@ -108,10 +108,10 @@ function initApp() {
     ];
     
     // Create and append all components
-    components.forEach(({ name, create }) => {
+    for (const { name, create } of components) {
       try {
         console.log(`Creating ${name} section...`);
-        const section = create();
+        const section = await create();
         if (section) {
           main.appendChild(section);
           console.log(`✓ ${name} section created successfully`);
@@ -121,7 +121,7 @@ function initApp() {
       } catch (error) {
         console.error(`Error creating ${name} section:`, error);
       }
-    });
+    }
     
     // Add main content to the app
     app.appendChild(main);
