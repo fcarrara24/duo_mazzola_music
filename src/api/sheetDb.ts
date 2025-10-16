@@ -13,7 +13,7 @@ const CACHE_TIMESTAMP_KEY = 'duo_mazzola_data_timestamp';
 const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 ore in millisecondi
 
 async function fetchFromServer(): Promise<RecordDB[]> {
-  const response = await fetch("https://sheetdb.io/api/v1/tg0w3ai1vymki");
+  const response = await fetch(process.env.REACT_APP_SHEETDB_API_URL || '');
   
   if (!response.ok) {
     throw new Error("Errore nel recupero dati: " + response.status);
