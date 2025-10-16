@@ -3,7 +3,7 @@ import './styles.css';
 import { createNavbar } from './components/Navbar';
 import { createHero } from './components/Hero';
 import { createAbout } from './components/About';
-import { createConcerts } from './components/Concerts';
+// import { createConcerts } from './components/Concerts';
 import { createMediaGallery } from './components/MediaGallery';
 import { createCurriculumSection } from './components/CurriculumSection';
 import { createFooter } from './components/Footer';
@@ -44,7 +44,7 @@ function initApp() {
       { name: 'hero', create: createHero },
       { name: 'about', create: createAbout },
       { name: 'media', create: createMediaGallery },
-      { name: 'concerts', create: createConcerts },
+      // { name: 'concerts', create: createConcerts },
       { 
         name: 'dynamic-content',
         create: () => {
