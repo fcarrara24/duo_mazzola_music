@@ -29,7 +29,7 @@ export function createContactSection() {
               <div class="contact-details">
                 <h3>Email</h3>
                 <p>Oppure inviaci un'email a:</p>
-                <a href="duomazzola@gmail.com" class="contact-link">info@duomazzola.it</a>
+                <a href="duomazzola@gmail.com" class="contact-link">duomazzola@gmail.com</a>
               </div>
             </div>
           </div>

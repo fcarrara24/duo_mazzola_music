@@ -13,7 +13,7 @@ export function createAbout() {
           <div class="about-details">
             <div class="detail">
               <h3>La nostra storia</h3>
-              <p>Il Duo nasce da una sinergia tra Fabrizio e Daniel (padre e figlio) che lo spinge nell'inverno del 2014  a formare il Duo con Fabrizio che ha alle spalle già 20 anni di musica live e Daniele he si affiancherà per formare così un Duo che tutt'oggi continua a crescere</p>
+              <p>Il Duo nasce da una sinergia tra Fabrizio e Daniel (padre e figlio) che lo spinge nell'inverno del 2014 a formare il Duo con Fabrizio che ha alle spalle già 20 anni di musica live e Daniel he si affiancherà per formare così un Duo che tutt'oggi continua a crescere</p>
             </div>
             
             <div class="detail">
