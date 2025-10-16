@@ -59,7 +59,7 @@ export function createMediaGallery() {
       type: 'image',
       src: './img/Estate Materiale/Duo Mazzola estate 1.jpg',
       thumbnail: './img/Estate Materiale/Duo Mazzola estate 1.jpg',
-      title: 'Duo Mazzola Estate 1',
+      title: 'Duo Mazzola Estate',
       category: 'foto',
       season: 'estate'
     },
@@ -68,7 +68,7 @@ export function createMediaGallery() {
       type: 'image',
       src: './img/Estate Materiale/Duo Mazzola estate 2.jpg',
       thumbnail: './img/Estate Materiale/Duo Mazzola estate 2.jpg',
-      title: 'Duo Mazzola Estate 2',
+      title: 'Duo Mazzola Estate',
       category: 'foto',
       season: 'estate'
     },
@@ -77,7 +77,7 @@ export function createMediaGallery() {
       type: 'image',
       src: './img/Estate Materiale/Duo Mazzola estate 3.jpg',
       thumbnail: './img/Estate Materiale/Duo Mazzola estate 3.jpg',
-      title: 'Duo Mazzola Estate 3',
+      title: 'Duo Mazzola Estate',
       category: 'foto',
       season: 'estate'
     },
@@ -86,7 +86,7 @@ export function createMediaGallery() {
       type: 'image',
       src: './img/Estate Materiale/Duo Mazzola estate 4.png',
       thumbnail: './img/Estate Materiale/Duo Mazzola estate 4.png',
-      title: 'Duo Mazzola Estate 4',
+      title: 'Duo Mazzola Estate',
       category: 'foto',
       season: 'estate'
     },
@@ -95,7 +95,7 @@ export function createMediaGallery() {
       type: 'image',
       src: './img/Estate Materiale/Duo Mazzola estate 5.jpg',
       thumbnail: './img/Estate Materiale/Duo Mazzola estate 5.jpg',
-      title: 'Duo Mazzola Estate 5',
+      title: 'Duo Mazzola Estate',
       category: 'foto',
       season: 'estate'
     },
@@ -104,7 +104,7 @@ export function createMediaGallery() {
       type: 'image',
       src: './img/Estate Materiale/Duo Mazzola estate 6.jpg',
       thumbnail: './img/Estate Materiale/Duo Mazzola estate 6.jpg',
-      title: 'Duo Mazzola Estate 6',
+      title: 'Duo Mazzola Estate',
       category: 'foto',
       season: 'estate'
     }
@@ -117,7 +117,7 @@ export function createMediaGallery() {
       type: 'image',
       src: './img/Inverno Materiale/Duo Mazzola - Natale 2.jpg',
       thumbnail: './img/Inverno Materiale/Duo Mazzola - Natale 2.jpg',
-      title: 'Duo Mazzola Natale 2',
+      title: 'Duo Mazzola Natale',
       category: 'foto',
       season: 'inverno'
     },
@@ -126,7 +126,7 @@ export function createMediaGallery() {
       type: 'image',
       src: './img/Inverno Materiale/Duo Mazzola - Natale 4.jpg',
       thumbnail: './img/Inverno Materiale/Duo Mazzola - Natale 4.jpg',
-      title: 'Duo Mazzola Natale 4',
+      title: 'Duo Mazzola Natale',
       category: 'foto',
       season: 'inverno'
     },
