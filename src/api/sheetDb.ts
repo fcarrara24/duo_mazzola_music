@@ -1,10 +1,11 @@
-interface RecordDB {
+export interface RecordDB {
   TIPO: "FOTO" | "VIDEO" | "POST_INSTAGRAM" | "URL" | "DATO";
   TITOLO: string;
   DESCRIZIONE: string;
   URL: string;
   DATA_INSERIMENTO?: string; // ISO date (es. "2025-09-09")
   CATEGORIE?: string; // lista separata da virgola
+  CATEGORIA: 'MEDIAGALLERY' | 'CONCERTS' | string; // Categoria principale per filtraggio
   ORDINE?: number;
 }
 
@@ -13,7 +14,7 @@ const CACHE_TIMESTAMP_KEY = 'duo_mazzola_data_timestamp';
 const ONE_DAY_MS = 24 * 60 * 60 * 1000; // 24 ore in millisecondi
 
 async function fetchFromServer(): Promise<RecordDB[]> {
-  const response = await fetch("https://sheetdb.io/api/v1/tg0w3ai1vymki");
+  const response = await fetch(process.env.REACT_APP_SHEETDB_API_URL || '');
   
   if (!response.ok) {
     throw new Error("Errore nel recupero dati: " + response.status);
@@ -29,6 +30,7 @@ async function fetchFromServer(): Promise<RecordDB[]> {
     URL: row.URL,
     DATA_INSERIMENTO: row.DATA_INSERIMENTO,
     CATEGORIE: row.CATEGORIE,
+    CATEGORIA: row.CATEGORIA || 'MEDIAGALLERY',
     ORDINE: row.ORDINE ? Number(row.ORDINE) : undefined,
   }));
 
