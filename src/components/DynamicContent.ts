@@ -46,7 +46,7 @@ class DynamicContent {
       await this.loadData();
       this.render();
     } catch (error) {
-      this.showError('Errore nel caricamento dei contenuti');
+      // this.showError('Errore nel caricamento dei contenuti');
       console.error('Error initializing DynamicContent:', error);
     }
   }
@@ -281,6 +281,8 @@ class DynamicContent {
   }
 
   private showLoading(): void {
+    return
+    // todo implementare i contenuti dinamici nella pagina
     this.container.innerHTML = `
       <div class="loading">
         <div class="spinner"></div>
