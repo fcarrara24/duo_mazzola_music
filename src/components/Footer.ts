@@ -4,14 +4,28 @@ export function createFooter() {
   footer.innerHTML = /*html*/ `
     <div class="container">
       <div class="footer-content">
-        <div class="footer-logo"><img class="footer-logo" src="./img/Estate Materiale/Duo Mazzola Logo.png" class="footer-logo-img"></div>
-        <div class="footer-links">
-          <a href="#home">Home</a>
-          <a href="#chi-siamo">Chi Siamo</a>
-          <a href="#concerti">Concerti</a>
-          <a href="#media">Media</a>
-          <a href="#contatti">Contatti</a>
+        <div class="location-info">
+          <p>Basati a Bergamo, disponibili per esibizioni in tutta la Lombardia</p>
+          <!--
+          <div class="location-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span>Lombardia, Italia</span>
+          </div>
+          -->
         </div>
+        <div class="footer-logo"><img class="footer-logo" src="./img/Estate Materiale/Duo Mazzola Logo.png" class="footer-logo-img"></div>
+        <!-- 
+          <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#chi-siamo">Chi Siamo</a>
+            <a href="#concerti">Concerti</a>
+            <a href="#media">Media</a>
+            <a href="#contatti">Contatti</a>
+          </div> 
+        -->
         <div class="social-links">
           <a href="https://www.facebook.com/share/19aYThKLvG/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -30,6 +44,7 @@ export function createFooter() {
           </a>
         </div>
       </div>
+    </div>
   `;
   return footer;
 }
