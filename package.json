@@ -7,6 +7,7 @@
     "start": "webpack serve --mode development --open",
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development --port 3001",
+    "predeploy": "npm run build && echo 'duomazzolamusic.com' > dist/CNAME",
     "deploy": "gh-pages -d dist"
   },
   "keywords": [],
