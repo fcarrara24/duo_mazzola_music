@@ -1,10 +1,11 @@
-interface RecordDB {
+export interface RecordDB {
   TIPO: "FOTO" | "VIDEO" | "POST_INSTAGRAM" | "URL" | "DATO";
   TITOLO: string;
   DESCRIZIONE: string;
   URL: string;
   DATA_INSERIMENTO?: string; // ISO date (es. "2025-09-09")
   CATEGORIE?: string; // lista separata da virgola
+  CATEGORIA: 'MEDIAGALLERY' | 'CONCERTS' | string; // Categoria principale per filtraggio
   ORDINE?: number;
 }
 
@@ -29,6 +30,7 @@ async function fetchFromServer(): Promise<RecordDB[]> {
     URL: row.URL,
     DATA_INSERIMENTO: row.DATA_INSERIMENTO,
     CATEGORIE: row.CATEGORIE,
+    CATEGORIA: row.CATEGORIA || 'MEDIAGALLERY',
     ORDINE: row.ORDINE ? Number(row.ORDINE) : undefined,
   }));
 

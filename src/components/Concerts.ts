@@ -1,5 +1,4 @@
-// Import the image at the top of the file
-import nataleImage from '../img/natale_1.jpg';
+import { getDati, RecordDB } from '../api/sheetDb';
 
 interface Concert {
   id: number;
@@ -7,60 +6,48 @@ interface Concert {
   date: string;
   location: string;
   description: string;
-  image: string | { src: string; default?: string };
+  image: string;
   isUpcoming: boolean;
 }
 
-// Helper function to get image URL from different import types
-function getImageUrl(image: string | { src: string; default?: string }): string {
-  if (typeof image === 'string') return image;
-  return image.default || image.src;
+function formatDate(isoDate?: string): string {
+  if (!isoDate) return 'Data da definire';
+  const date = new Date(isoDate);
+  return date.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
-export function createConcerts() {
+function mapRecordToConcert(record: RecordDB, index: number): Concert | null {
+  const isUpcoming = record.DATA_INSERIMENTO ? new Date(record.DATA_INSERIMENTO) > new Date() : false;
+
+  // Assuming location is stored in CATEGORIE, otherwise default
+  const location = record.CATEGORIE || 'Luogo da definire';
+
+  return {
+    id: record.ORDINE || index,
+    title: record.TITOLO,
+    date: formatDate(record.DATA_INSERIMENTO),
+    location: location,
+    description: record.DESCRIZIONE,
+    image: record.URL, // Assuming URL is the image for the concert
+    isUpcoming: isUpcoming,
+  };
+}
+
+export async function createConcerts(): Promise<HTMLElement> {
   const concerts = document.createElement('section');
   concerts.className = 'concerts';
   concerts.id = 'concerti';
-  
-  // Sample concert data - replace with actual data
-  const concertData: Concert[] = [
-    {
-      id: 1,
-      title: 'Serata Classica',
-      date: '15 Settembre 2023',
-      location: 'Teatro Comunale, Milano',
-      description: 'Un viaggio attraverso i capolavori della musica classica con un tocco contemporaneo.',
-      image: 'https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
-      isUpcoming: true
-    },
-    {
-      id: 2,
-      title: 'Note d\'Autunno',
-      date: '5 Ottobre 2023',
-      location: 'Auditorium Parco della Musica, Roma',
-      description: 'Melodie autunnali che riscaldano il cuore in una serata indimenticabile.',
-      image: nataleImage,
-      isUpcoming: true
-    },
-    {
-      id: 3,
-      title: 'Concerto di Primavera',
-      date: '12 Maggio 2023',
-      location: 'Villa Reale, Monza',
-      description: 'Celebrazione della primavera con un repertorio vivace e coinvolgente.',
-      image: 'https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
-      isUpcoming: false
-    },
-    {
-      id: 4,
-      title: 'Note d\'Inverno',
-      date: '20 Dicembre 2022',
-      location: 'Teatro Dal Verme, Milano',
-      description: 'Concerto natalizio con brani classici e tradizionali per celebrare le festività.',
-      image: 'https://images.unsplash.com/photo-1501612780327-45045538702b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80',
-      isUpcoming: false
-    }
-  ];
+
+  const allData = await getDati();
+  const concertDataFromApi = allData.filter(item => item.CATEGORIA === 'CONCERTS');
+  const concertData: Concert[] = concertDataFromApi
+    .map(mapRecordToConcert)
+    .filter((item): item is Concert => item !== null)
+    .sort((a, b) => {
+      const dateA = a.isUpcoming ? new Date(allData.find(d => d.TITOLO === a.title)?.DATA_INSERIMENTO || 0).getTime() : 0;
+      const dateB = b.isUpcoming ? new Date(allData.find(d => d.TITOLO === b.title)?.DATA_INSERIMENTO || 0).getTime() : 0;
+      return dateB - dateA;
+    });
 
   const upcomingConcerts = concertData.filter(concert => concert.isUpcoming);
 
@@ -74,7 +61,7 @@ export function createConcerts() {
               ${upcomingConcerts.map(concert => `
                 <div class="concert-card" data-id="${concert.id}">
                   <div class="concert-image">
-                    <img src="${getImageUrl(concert.image)}" alt="${concert.title}" />
+                    <img src="${concert.image}" alt="${concert.title}" />
                     <div class="concert-date">${concert.date}</div>
                   </div>
                   <div class="concert-info">
