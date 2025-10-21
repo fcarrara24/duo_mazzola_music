@@ -39,8 +39,11 @@ export function createAbout() {
           <div class="musical-style">
             <h3>Generi musicali</h3>
             <div class="tags">
-              <span class="tag">Classica</span>
-              <span class="tag">Contemporanea</span>
+              <span class="tag">Folkloristico</span>
+              <span class="tag">Tradizionali</span>
+              <span class="tag">Liscio</span>
+              <span class="tag">Revival</span>
+              <span class="tag">60/90</span>
             </div>
           </div>
         </div>

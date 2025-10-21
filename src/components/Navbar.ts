@@ -17,7 +17,7 @@ export function createNavbar() {
         <li><a href="#chi-siamo">Chi Siamo</a></li>
         <li><a href="#concerti">Concerti</a></li>
         <li><a href="#media">Media</a></li>
-        <li><a href="#repertorio">Repertorio</a></li>
+        <!-- <li><a href="#repertorio">Repertorio</a></li> -->
         <li><a href="https://www.facebook.com/share/19aYThKLvG/"target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
         <li><a href="https://www.instagram.com/duo_mazzola_music?igsh=NXJnbmN5djR2M3Bw" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
         <li><a href="https://www.youtube.com/@DanielMazzolaByMazzo" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
