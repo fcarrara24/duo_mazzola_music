@@ -65,12 +65,135 @@ export async function createMediaGallery(): Promise<HTMLElement> {
   gallery.className = 'media-gallery';
   gallery.id = 'media';
 
-  const allData = await getDati();
-  const mediaDataFromApi = allData.filter(item => item.CATEGORIA === 'MEDIAGALLERY');
-  const mediaData: MediaItem[] = mediaDataFromApi
-    .map(mapRecordToMediaItem)
-    .filter((item): item is MediaItem => item !== null)
-    .sort((a, b) => a.id - b.id);
+  // const allData = await getDati();
+  // const mediaDataFromApi = allData.filter(item => item.CATEGORIA === 'MEDIAGALLERY');
+  // const mediaData: MediaItem[] = mediaDataFromApi
+  //   .map(mapRecordToMediaItem)
+  //   .filter((item): item is MediaItem => item !== null)
+  //   .sort((a, b) => a.id - b.id);
+    // YouTube videos
+  const youtubeVideos: VideoMediaItem[] = [
+    {
+      id: 1,
+      type: 'video',
+      src: 'https://www.youtube.com/embed/pKUUaWFq_xw',
+      thumbnail: 'https://img.youtube.com/vi/pKUUaWFq_xw/maxresdefault.jpg',
+      title: 'Versione popolare acustica',
+      category: 'video',
+      season: 'all'
+    },
+    {
+      id: 2,
+      type: 'video',
+      src: 'https://www.youtube.com/embed/VY9ac6jbZoA',
+      thumbnail: 'https://img.youtube.com/vi/VY9ac6jbZoA/maxresdefault.jpg',
+      title: 'Versione ballo liscio e Revival anni 60/90',
+      category: 'video',
+      season: 'all'
+    }, 
+    {
+      id: 3,
+      type: 'video',
+      src: 'https://www.youtube.com/embed/ERoks8w8uZc',
+      thumbnail: 'https://img.youtube.com/vi/ERoks8w8uZc/maxresdefault.jpg',
+      title: 'Versione Natalizia',
+      category: 'video',
+      season: 'all'
+    }, 
+  ];
+
+  // Estate Materiale images
+  const estateImages: ImageMediaItem[] = [
+    {
+      id: 3,
+      type: 'image',
+      src: './img/Estate Materiale/Duo Mazzola estate 1.jpg',
+      thumbnail: './img/Estate Materiale/Duo Mazzola estate 1.jpg',
+      title: 'Duo Mazzola Estate',
+      category: 'foto',
+      season: 'estate'
+    },
+    {
+      id: 4,
+      type: 'image',
+      src: './img/Estate Materiale/Duo Mazzola estate 2.jpg',
+      thumbnail: './img/Estate Materiale/Duo Mazzola estate 2.jpg',
+      title: 'Duo Mazzola Estate',
+      category: 'foto',
+      season: 'estate'
+    },
+    {
+      id: 5,
+      type: 'image',
+      src: './img/Estate Materiale/Duo Mazzola estate 3.jpg',
+      thumbnail: './img/Estate Materiale/Duo Mazzola estate 3.jpg',
+      title: 'Duo Mazzola Estate',
+      category: 'foto',
+      season: 'estate'
+    },
+    {
+      id: 6,
+      type: 'image',
+      src: './img/Estate Materiale/Duo Mazzola estate 4.png',
+      thumbnail: './img/Estate Materiale/Duo Mazzola estate 4.png',
+      title: 'Duo Mazzola Estate',
+      category: 'foto',
+      season: 'estate'
+    },
+    {
+      id: 7,
+      type: 'image',
+      src: './img/Estate Materiale/Duo Mazzola estate 5.jpg',
+      thumbnail: './img/Estate Materiale/Duo Mazzola estate 5.jpg',
+      title: 'Duo Mazzola Estate',
+      category: 'foto',
+      season: 'estate'
+    },
+    {
+      id: 8,
+      type: 'image',
+      src: './img/Estate Materiale/Duo Mazzola estate 6.jpg',
+      thumbnail: './img/Estate Materiale/Duo Mazzola estate 6.jpg',
+      title: 'Duo Mazzola Estate',
+      category: 'foto',
+      season: 'estate'
+    }
+  ];
+
+  // Inverno Materiale images
+  const invernoImages: ImageMediaItem[] = [
+    {
+      id: 10,
+      type: 'image',
+      src: './img/Inverno Materiale/Duo Mazzola - Natale 2.jpg',
+      thumbnail: './img/Inverno Materiale/Duo Mazzola - Natale 2.jpg',
+      title: 'Duo Mazzola Natale',
+      category: 'foto',
+      season: 'inverno'
+    },
+    {
+      id: 11,
+      type: 'image',
+      src: './img/Inverno Materiale/Duo Mazzola - Natale 4.jpg',
+      thumbnail: './img/Inverno Materiale/Duo Mazzola - Natale 4.jpg',
+      title: 'Duo Mazzola Natale',
+      category: 'foto',
+      season: 'inverno'
+    },
+    {
+      id: 12,
+      type: 'image',
+      src: './img/Inverno Materiale/Duo Mazzola foto.png',
+      thumbnail: './img/Inverno Materiale/Duo Mazzola foto.png',
+      title: 'Duo Mazzola Inverno',
+      category: 'foto',
+      season: 'inverno'
+    }
+  ];
+
+  // Combine all media
+  const mediaData: MediaItem[] = [...youtubeVideos, ...estateImages, ...invernoImages];
+
 
   gallery.innerHTML = /*html*/`
     <div class="container">
